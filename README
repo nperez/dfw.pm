@@ -1,0 +1,29 @@
+This is the site generator for the DFW.pm group. The site is data driven via
+a small sqlite db that is stored in git. There is a small local Web::Simple
+based application that is used to make changes to the database. Or you can 
+manually edit the db yourself with whatever tool you'd like. Just make sure
+that you git add the change, commit it, and update the Changes file.
+
+There are two main tables, contacts, which is used to populate the contacts 
+page, and meetings which is used to populate the various sub group meetings
+specifics pages. The latest entry in the meetings table for a particular sub
+group will be considered the "next" meeting.
+
+Those are really the only "dynamic" pages in the site. The rest should be
+dumb HTML.
+
+If you use the Web::Simple app, you will need to have Git installed. Each db
+change will commit to the repo and be annotated in the Changes file.
+
+To make sure you have the prerequisites to run the db manipulator, and also
+compile the site, install Dist::Zilla, and Dist::Zilla::PluginBundle::DFW.
+Then in the project directory, simply run "dzil listdeps | cpanm".
+
+Make your changes, and then run "dzil release"
+
+To do a release, you will need to have ~/.dfw.pm.webdav file with your
+username and password.
+
+The release process will check, tag, and push the changes back up to github,
+in addition to uploading the result via WebDAV to make the site live.
+

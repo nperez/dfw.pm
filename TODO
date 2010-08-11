@@ -1,0 +1,26 @@
+Tests:
+    Schema
+
+Site:
+    templates/headers/main.tt
+    templates/wrapper/root.tt
+    templates/allen.tt
+    templates/arlington.tt
+    templates/contact.tt
+    templates/index.tt
+
+Web::Simple:
+    Contact editor
+        GET
+        POST
+    Meetings editor
+        GET
+        POST
+
+DFW::Schema:
+    DFW::Schema::Result::Contacts
+    DFW::Schema::Result::Meetings
+
+Dist::Zilla::PluginBundle::DFW:
+    Dist::Zilla::Plugin::DFW::Build
+    Dist::Zilla::Plugin::DFW::Release
